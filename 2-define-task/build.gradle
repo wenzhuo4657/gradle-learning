@@ -1,12 +1,12 @@
-task hello1 << {
-println 'hello1'
-println delegate.class.name
-}
+
 
 
 task hello2 {
 doLast {
-println 'hello2'}
+    println 'hello2'
+    println delegate.class.name
+
+}
 }
 
 
@@ -20,21 +20,29 @@ println tasks.class
 println tasks.size()
 }
 
-task hello7 << {
-description = "this is hello7"
-println description
+task hello7 {
+    doLast{
+        description = "this is hello7"
+        println description
+    }
 }
 
-task hello8 << {
-println description
+task hello8  {
+    doLast{
+        println description
+    }
+
 }
 
 hello8 {
 description = "this is hello8"
 }
 
-task hello9 << {
-println description
+task hello9 {
+    doLast{
+        println description
+    }
+
 }
 
 hello9.configure {

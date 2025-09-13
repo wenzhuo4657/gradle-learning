@@ -1,8 +1,18 @@
-task helloWorld << {
-    println "Hello World!"
+task helloWorld {
+    doLast {
+        println 'Hello, World!'
+    }
 }
+
 
 task copyFile(type: Copy) {
     from 'xml'
     into 'destination'
+}
+
+
+task my(dependsOn: helloWorld) {
+    doLast {
+        println 'my task'
+    }
 }
