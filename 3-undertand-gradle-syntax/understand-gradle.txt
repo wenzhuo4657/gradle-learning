@@ -8,19 +8,25 @@ Gradle是一种声明式的构建工具。在执行时，Gradle并不会一开�
 
 在前面的文章中我们讲到，Gradle的DSL只是Groovy语言的内部DSL，也即必须遵循Groovy的语法规则。现在，让我们先来看看以下非常简单的Task：
 
-task showDescription1 << {
-    description = 'this is task showDescription'
-    println description
+task showDescription1 {
+    doLast {
+        description = 'this is task showDescription'
+        println description
+    }
 }
 
-task showDescription2 << {
-    println description
+task showDescription2 {
+    doLast {
+        println description
+    }
 }
 showDescription2.description = 'this is task showDescription'
 
 
-task showDescription3 << {
-    println description
+task showDescription3 {
+    doLast {
+        println description
+    }
 }
 showDescription3 {
     description = 'this is task showDescription'

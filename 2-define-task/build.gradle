@@ -1,7 +1,7 @@
-
-
-
 task hello2 {
+    doFirst{
+        println 'start'
+    }
 doLast {
     println 'hello2'
     println delegate.class.name

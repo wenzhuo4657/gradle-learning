@@ -1,16 +1,22 @@
-task showDescription1 << {
-    description = 'this is task showDescription'
-    println description
+task showDescription1 {
+    doLast {
+        description = 'this is task showDescription'
+        println description
+    }
 }
 
-task showDescription2 << {
-    println description
+task showDescription2 {
+    doLast {
+        println description
+    }
 }
 showDescription2.description = 'this is task showDescription'
 
 
-task showDescription3 << {
-    println description
+task showDescription3 {
+    doLast {
+        println description
+    }
 }
 showDescription3 {
     description = 'this is task showDescription'
@@ -18,9 +24,11 @@ showDescription3 {
 
 
 
-task copyFile1(type: Copy) << {
-    from 'source'
-    into 'destination'
+task copyFile1(type: Copy) {
+    doLast {
+        from 'source'
+        into 'destination'
+    }
 }
 
 

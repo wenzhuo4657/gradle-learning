@@ -31,7 +31,9 @@ task wrapper(type: Wrapper) {
     jarFile = 'wrapper/wrapper.jar'
 }
 
-task showMyDependency << {
-    println configurations.myDependency.asPath
+task showMyDependency {
+    doLast {
+        println configurations.myDependency.asPath
+    }
 }
 

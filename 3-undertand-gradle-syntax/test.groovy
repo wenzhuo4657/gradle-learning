@@ -12,6 +12,7 @@ class Child {
 }
 
 class Parent {
+    private String age
     Child child = new Child();
 
     void configChild(Closure c) {
@@ -24,7 +25,10 @@ class Parent {
 def parent = new Parent()
 parent.configChild {
     name = "child name"
+    age=18
+    
 }
 
 println parent.child.name
+println parent.age
 

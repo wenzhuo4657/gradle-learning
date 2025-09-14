@@ -8,12 +8,16 @@ class DateAndTimePlugin implements Plugin<Project> {
 
         project.extensions.create("dateAndTime", DateAndTimePluginExtension)
 
-        project.task('showTime') << {
-            println "Current time is " + new Date().format(project.dateAndTime.timeFormat)
+        project.task('showTime') {
+            doLast {
+                println "Current time is " + new Date().format(project.dateAndTime.timeFormat)
+            }
         }
 
-        project.tasks.create('showDate') << {
-            println "Current date is " + new Date().format(project.dateAndTime.dateFormat)
+        project.tasks.create('showDate') {
+            doLast {
+                println "Current date is " + new Date().format(project.dateAndTime.dateFormat)
+            }
         }
     }
 }

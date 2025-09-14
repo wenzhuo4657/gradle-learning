@@ -16,9 +16,11 @@ version      Project的版本号
 
 version = 'this is the project version'
 description = 'this is the project description'
-task showProjectProperties << {
-    println version
-    println project.description
+task showProjectProperties {
+    doLast {
+        println version
+        println project.description
+    }
 }
 
 请注意，在打印description时，我们使用了project.description，而不是直接使用description。原因在于，Project和Task都拥有description属性，而定义Task的闭包将delegate设置
@@ -41,9 +43,11 @@ ext {
 
 在定义了Property后，在使用这些Property时我们则不需要ext，而是可以直接访问：
 
-task showProperties << {
-    println property1
-    println property2
+task showProperties {
+    doLast {
+        println property1
+        println property2
+    }
 }
 
 事实上，任何实现了ExtensionAware接口的Gradle对象都可以通过这种方式来添加额外的Property。
@@ -51,8 +55,10 @@ task showProperties << {
 （2）通过命令行参数定义Property
 Gradle还提供了-P命令行参数来设置Property，比如：
 
-task showCommandLieProperties << {
-    println property3
+task showCommandLieProperties {
+    doLast {
+        println property3
+    }
 }
 
 在执行“gradle showCommandLieProperties”时，终端输出如下：

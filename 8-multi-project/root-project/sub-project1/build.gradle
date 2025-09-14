@@ -1,11 +1,15 @@
 //project 1
 
-task taskA << {
-    println 'this is taskA from project 1'
+task taskA {
+    doLast {
+        println 'this is taskA from project 1'
+    }
 }
 
-task taskB << {
-    println 'this is taskB from project 1'
+task taskB {
+    doLast {
+        println 'this is taskB from project 1'
+    }
 }
 
 taskA.dependsOn taskB

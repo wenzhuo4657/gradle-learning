@@ -28,8 +28,10 @@ dependencies {
 
 以上，我们将Apache的commons加入了myDependency中。之后，如果有Task需要将Apache commons加入到classpath中，我们可以通过以下方式进行获取：
 
-task showMyDependency << {
-    println configurations.myDependency.asPath
+task showMyDependency {
+    doLast {
+        println configurations.myDependency.asPath
+    }
 }
 
 执行“gradle showMyDependency”命令，在笔者的电脑上终端将显示：
@@ -65,9 +67,10 @@ dependencies {
     pmd group: 'pmd', name: 'pmd', version: '4.2.5'
 }
 
-task check << {
-    ant.taskdef(name: 'pmd', classname: 'net.sourceforge.pmd.ant.PMDTask', classpath: configurations.pmd.asPath)
-    ant.pmd(shortFilenames: 'true', failonruleviolation: 'true', rulesetfiles: file('pmd-rules.xml').toURI().toString()) {
+task check {
+    doLast {
+        ant.taskdef(name: 'pmd', classname: 'net.sourceforge.pmd.ant.PMDTask', classpath: configurations.pmd.asPath)
+        ant.pmd(shortFilenames: 'true', failonruleviolation: 'true', rulesetfiles: file('pmd-rules.xml').toURI().toString()) {
         formatter(type: 'text', toConsole: 'true')
         fileset(dir: 'src')
     }
