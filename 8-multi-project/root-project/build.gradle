@@ -1,4 +1,4 @@
-allprojects {
+gradle allTask {
     apply plugin: 'idea'
     task allTask {
         doLast {
